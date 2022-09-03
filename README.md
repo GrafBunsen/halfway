@@ -4,9 +4,23 @@ Lets Meet Halfway gibt den benutzenden die Möglichkeit Treffpunkte auszusuchen 
 
 
 ## Stakeholder
-- Benutzende (Personen die sich treffen wollen)
-- Auftraggeberin (VBB)
+- Benutzende
+  - Personen die sich treffen wollen
+  - Kommunikation über Kontaktformular/Forum
+  - hohe Relevanz/ keine Befugnisse
+  - bestes Produkt für den eigenen Bedarf
+- Auftraggeber
+  - VBB Verkehrsverbund Berlin-Brandenburg GmbH
+  - Ansprechpartner: Lukas Knopf (Projekt Koordinator)
+  - Verfügbarkeit: wöchentliche Meetings
+  - hohe Relevanz/Komplette Befugnisse
+  - keine technischen Kopmpetenzen, nut Produktexpertise
+  - gutes Produkt für VBB Kund:innen entwickeln und veröffentlichen
 - Entwickler
+- Qualitätssicherung
+  - Ansprechpartner: Tobias Niedling
+  - Verfügbarkeit: Wöchentlich, meist Freitag
+  - an die Vorgaben aus Software Engeneering angepasstes Projekt 
 
 ## Projektziele
 - Personen die sich treffen wollen sollen schnell und einfach herausfinden zu welcher Haltestelle beide die gleiche Anfahrtszeit haben (Quelle: Benutzende)
