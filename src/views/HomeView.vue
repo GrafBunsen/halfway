@@ -5,7 +5,6 @@ import Header from "../components/Header.vue";
 <template>
   <Header />
   <div class="m-8">
-
     <div class="bg-[#A4FBD6] rounded-t-md relative pt-4">
       <h1 class="text-7xl font-bold text-white text-right italic relative top-[6px]">A</h1>
       <div class="absolute z-10 bottom-4 left-4">
@@ -43,4 +42,6 @@ import Header from "../components/Header.vue";
   input:focus{
     outline: none;
   }
+
+
 </style>
