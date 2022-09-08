@@ -4,11 +4,6 @@ Lets Meet Halfway gibt den benutzenden die Möglichkeit Treffpunkte auszusuchen 
 
 
 ## Stakeholder
-- Benutzende
-  - Personen die sich treffen wollen
-  - Kommunikation über Kontaktformular/Forum
-  - hohe Relevanz/ keine Befugnisse
-  - bestes Produkt für den eigenen Bedarf
 - Auftraggeber
   - VBB Verkehrsverbund Berlin-Brandenburg GmbH
   - Ansprechpartner: Lukas Knopf (Projekt Koordinator)
@@ -16,15 +11,28 @@ Lets Meet Halfway gibt den benutzenden die Möglichkeit Treffpunkte auszusuchen 
   - hohe Relevanz/Komplette Befugnisse
   - keine technischen Kopmpetenzen, nut Produktexpertise
   - gutes Produkt für VBB Kund:innen entwickeln und veröffentlichen
+- Zulieferer VBB Open Data Team
 - Entwickler
+- GUI-Designer
 - Qualitätssicherung
   - Ansprechpartner: Tobias Niedling
   - Verfügbarkeit: Wöchentlich, meist Freitag
   - an die Vorgaben aus Software Engeneering angepasstes Projekt 
+- Tester
+- Werbepartner, die ihre Locations um die vorgeschlagenen Bahnhöfe haben
+- Benutzende
+  - Personen die sich treffen wollen
+  - Kommunikation über Kontaktformular/Forum
+  - hohe Relevanz/ keine Befugnisse
+  - bestes Produkt für den eigenen Bedarf
+- Konkurenz VBB App und andere ÖPNV Apps, weil sie fürchten, dass wir Nutzende abgraben
 
 ## Projektziele
-- Personen die sich treffen wollen sollen schnell und einfach herausfinden zu welcher Haltestelle beide die gleiche Anfahrtszeit haben (Quelle: Benutzende)
-- zeitlich mittige Haltestelle zwischen Start und Zielpunkt (Quelle: Benutzende)
-- Steigerung der Attraktivität der ÖPNV (Quelle: VBB)
-- hochqualitätive Software (Quelle: Entwickler)
-- Einschränkung: kurze Ladezeiten und wenig Datenverbrauch (unterwegs)
+- Personen die sich treffen wollen sollen schnell und einfach herausfinden zu welcher Haltestelle beide die gleiche Anfahrtszeit haben (Quelle: Stakeholder/Benutzende)
+- Steigerung der Attraktivität der ÖPNV (Quelle: Stakeholder/VBB)
+- hochqualitätive, wartbare Software (Quelle: Stakeholder/Entwickler)
+- Datensparsame Anwendung (Quelle: Dokumente/DSVGO)
+
+## Kontext
+- Einschränkung: kurze Ladezeiten und wenig Datenverbrauch (Quelle: Systeme/Funknetz)
+- Einschränkung: lokales Endgerät mit modernem Browser und Internetverbindung wird benötigt (Quelle: Systeme/Endgerät)
