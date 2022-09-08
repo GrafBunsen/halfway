@@ -14,6 +14,7 @@ Lets Meet Halfway gibt den benutzenden die Möglichkeit Treffpunkte auszusuchen 
 - Zulieferer VBB Open Data Team
 - Entwickler
 - GUI-Designer
+- Interner Projektleiter
 - Qualitätssicherung
   - Ansprechpartner: Tobias Niedling
   - Verfügbarkeit: Wöchentlich, meist Freitag
