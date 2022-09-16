@@ -18,7 +18,8 @@ const router = createRouter({
     {
       path: '/info',
       name: 'info',
-      component: () => import('../views/InfoView.vue')
+      component: () => import('../views/InfoView.vue'),
+      props: true
     },
     {
       path: '/about',

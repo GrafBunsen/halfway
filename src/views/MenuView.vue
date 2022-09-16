@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import MenuHeader from "../components/MenuHeader.vue";
+import MenuHeader from "../components/MenuHeader.vue";
     </script>
 <template>
 
@@ -16,6 +16,7 @@
             <RouterLink to="/info"><h1 class="text-[#4a4a4a] font-bold text-2xl text-center my-8"><span class="material-symbols-rounded text-[#4a4a4a] relative top-1 text-3xl">info</span> Informationen</h1></RouterLink>
         </nav>
     
+        <footer class="absolute bottom-0 min-h-4 bg-[#A4FBD6] p-2 content-none w-full"></footer>
     </div>
 
 </template>

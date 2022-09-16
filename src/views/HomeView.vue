@@ -3,7 +3,8 @@ import Header from "../components/Header.vue";
 </script>
 
 <template>
-  <Header />
+  <div class="min-h-screen">
+    <Header />
   <div class="m-8">
     <div class="bg-[#A4FBD6] rounded-t-md relative pt-4">
       <h1 class="text-7xl font-bold text-white text-right italic relative top-[6px]">A</h1>
@@ -28,6 +29,9 @@ import Header from "../components/Header.vue";
         </span>
       </button>  
     </div>
+  </div>
+  
+  <footer class="absolute bottom-0 min-h-4 bg-[#A4FBD6] p-2 content-none w-full"></footer>
   </div>
 </template>
 
