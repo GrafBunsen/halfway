@@ -1,11 +1,23 @@
 <script setup lang="ts">
 import Header from "../components/Header.vue";
+
+var lat: any, long;
+
+navigator.geolocation.getCurrentPosition(function(position) {
+     lat = position.coords.latitude;
+     long = position.coords.longitude;
+
+    lat.toFixed(2);
+    long.toFixed(2);
+    console.log(lat, long);
+  });
+
 </script>
 
 <template>
   <div class="min-h-screen">
     <Header />
-  <div class="m-8">
+    <div class="m-8">
     <div class="bg-[#A4FBD6] rounded-t-md relative pt-4">
       <h1 class="text-7xl font-bold text-white text-right italic relative top-[6px]">A</h1>
       <div class="absolute z-10 bottom-4 left-4">
