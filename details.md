@@ -1,7 +1,7 @@
 # Techstack
 
 ### Frontend
-- View.js mit Typescript
+- Vue.js mit Typescript
   - erlaubt es einfach eine Single Page Applikation zu bauen
   - gute Dokumentation
   - einsteigerfreundlich
