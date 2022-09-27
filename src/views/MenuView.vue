@@ -9,7 +9,7 @@ import MenuHeader from "../components/MenuHeader.vue";
         <nav class="mx-6">
             <RouterLink to="/"><h1 class="text-[#4a4a4a] font-bold text-2xl text-center my-8"><span class="material-symbols-rounded text-[#4a4a4a] relative top-1 text-3xl">home</span> Home</h1></RouterLink>
             <hr>
-            <h1 class="text-[#4a4a4a] font-bold text-2xl text-center my-8"><span class="material-symbols-rounded text-[#4a4a4a] relative top-1 text-3xl">settings</span> Einstellungen</h1>
+            <RouterLink to="/settings"><h1 class="text-[#4a4a4a] font-bold text-2xl text-center my-8"><span class="material-symbols-rounded text-[#4a4a4a] relative top-1 text-3xl">settings</span> Einstellungen</h1></RouterLink>
             <hr>
             <h1 class="text-[#4a4a4a] font-bold text-2xl text-center my-8"><span class="material-symbols-rounded text-[#4a4a4a] relative top-1 text-4xl">star</span> Favoriten</h1>
             <hr>
