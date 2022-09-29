@@ -3,20 +3,14 @@ import Header from "../components/Header.vue";
 import { ref } from "vue";
 import type Stop from "@/models/stop";
 import { store } from "@/models/store";
+import UserLocation from "../components/UserLocation.vue";
+import FavoritesCards from "../components/FavoritesCards.vue";
 
-var lat: number, long: number;
 const stops = ref<Stop[]>([]);
 const suggestion = ref<string[]>([]);
-const userPosition = ref<number[]>([]); // Position of User according to geolocation API [latitude, longditude]
 var aIsFocus:boolean;
 var bIsFocus:boolean;
-
-navigator.geolocation.getCurrentPosition(function (position) {   //We dont use this unless we want to locate the User to find the next station faster
-  lat = position.coords.latitude;
-  long = position.coords.longitude;
-
-  userPosition.value.push(lat, long)
-});
+const favorites:boolean = true;
 
 
 fetch("http://localhost:3000/stops").then(async result => stops.value = (await result.json()))
@@ -38,6 +32,7 @@ function getSuggestion(startPoint: string) {
 <template>
   <div class="min-h-screen">
     <Header />
+    <UserLocation></UserLocation>
     <div class="m-8">
       <div class="bg-[#A4FBD6] rounded-t-md pt-4 flex items-center">
 
@@ -46,8 +41,8 @@ function getSuggestion(startPoint: string) {
             class="border-2 border-white bg-white/50 h-10 w-full rounded-md px-2 text-lg font-semibold text-[#4a4a4]"
             placeholder="Start A" required>
 
-            <div v-if="store.startA.length > 2 && aIsFocus" class="text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-96 bg-black/75  z-10 overflow-y-scroll">
-                <a @click="store.startA = stop" v-for="stop in suggestion">{{stop}}  <hr></a>
+            <div v-if="store.startA.length > 2 && aIsFocus" class="text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-96 bg-black/60 backdrop-blur  z-10 overflow-y-scroll">
+                <a class="cursor-pointer w-full" @click="store.startA = stop" v-for="stop in suggestion">{{stop}}  <hr></a>
             </div>
 
         </div>
@@ -61,8 +56,8 @@ function getSuggestion(startPoint: string) {
             class="border-2 border-white bg-white/50 h-10 rounded-md min-w-full px-2 text-lg font-semibold text-[#4a4a4]"
             placeholder="Start B" required>
 
-            <div v-if="store.startB.length > 2 && bIsFocus" class="text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-80 bg-black/75  z-10 overflow-y-scroll">
-                <a @click="store.startB = stop" v-for="stop in suggestion">{{stop}} <hr></a>
+            <div v-if="store.startB.length > 2 && bIsFocus" class="pb-4 text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-80 bg-black/60 backdrop-blur z-10 overflow-y-scroll">
+                <a class="cursor-pointer" @click="store.startB = stop" v-for="stop in suggestion">{{stop}} <hr></a>
             </div>
         </div>
 
@@ -90,10 +85,12 @@ function getSuggestion(startPoint: string) {
       </div>
 
       <div v-if="store.startA == store.startB && store.startA != '' && store.startB != ''" class="mt-4 text-red-600 font-medium"><span class="material-symbols-rounded text-red-600 relative top-[6px] alig">warning</span> Deine beiden Stationen sind identisch</div>
-
-
+  
+      <div v-if="favorites" class="mt-28">
+        <h3 class="font-semibold text-xl text-center"><span class="material-symbols-rounded text-[#4a4a4a] relative top-[6px] text-3xl">star</span> Favoriten</h3>
+        <FavoritesCards></FavoritesCards> <!--NUmber of Favorite Cards will be the number of Favorites-->
+      </div>
     </div>
-
     <footer class="absolute bottom-0 min-h-4 bg-[#A4FBD6] p-2 content-none w-full"></footer>
   </div>
 </template>
