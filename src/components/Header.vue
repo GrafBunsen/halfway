@@ -5,7 +5,7 @@
       <RouterLink to="/menu"><span class="material-symbols-rounded text-white text-4xl relative top-6 left-4">menu</span></RouterLink>
     </div>
     <div class="bg-[#A4FBD6] py-6">
-      <h1 class="text-3xl text-[#4a4a4a] text-right pr-8"><span class="font-bold underline decoration-4">halfwa</span><span class="font-bold">y</span></h1>
+     <RouterLink to="/"><h1 class="text-3xl text-[#4a4a4a] text-right pr-8"><span class="font-bold underline decoration-4">halfwa</span><span class="font-bold">y</span></h1></RouterLink>
     </div>
   </div>
 </template>

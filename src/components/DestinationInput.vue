@@ -2,7 +2,7 @@
 
 import type Stop from '@/models/stop';
 import { getStops } from '@/models/utils';
-import { ref, type Ref } from 'vue';
+import { ref, toRefs, watch, type PropType, type Ref } from 'vue';
 
 const stops = ref<Stop[]>([]);
 const suggestion = ref<Stop[]>([]);
@@ -10,7 +10,22 @@ const userInput = ref("");
 let isFocus = ref(false);
 
 const emits = defineEmits(["stop-select"]);
-const darkModeProp = defineProps({darkMode: {default: false, type: Boolean}});
+
+const props = defineProps({
+    darkMode: {default: false, type: Boolean},
+    placeholder: String,
+    cardValue: Object as PropType<Stop>
+});
+
+let props2 = toRefs(props);
+
+watch(
+  [props2.cardValue],
+  () => {
+    if(props2.cardValue?.value?.stop_name)
+    userInput.value = props2.cardValue?.value?.stop_name;
+  }
+);
 
 getStops().then(stopResult => stops.value = stopResult);
 
@@ -53,10 +68,10 @@ function unfocus() {
 
 </script>
 <template>
-    <div @focusin="isFocus = true" @focusout="unfocus()" class="relative h-fit w-full" :class="{'dark': darkModeProp.darkMode}">
+    <div @focusin="isFocus = true" @focusout="unfocus()" class="relative h-fit w-full" :class="{'dark': props.darkMode}">
           <input @input="input()" v-model="userInput" type="text"
             class="border-2 border-white bg-white/50 h-10 w-full rounded-md px-2 text-lg font-semibold text-[#4a4a4]"
-            placeholder="Start A" required>
+            :placeholder="props.placeholder" required>
             <div v-if="userInput.length > 2 && isFocus" class="text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-96 bg-black/60 backdrop-blur  z-10 overflow-y-scroll">
                 <a class="cursor-pointer w-full" @click="select(stop)" v-for="stop in suggestion">{{stop.stop_name}}  <hr></a>
             </div>

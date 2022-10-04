@@ -28,9 +28,18 @@ fetch(`http://localhost:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop_id}
             <LoadingResult></LoadingResult>
         </div>
         <div v-else class="mx-8">
-            <p class="text-l mt-8 ">Trefft euch in:</p>
-            <p class="text-xl m-auto font-bold ">{{ response }}</p>
-            <p class="text-l mt-4 ">:)</p>
+            <div class="bg-[#A4FBD6] p-4 mt-8 rounded-md">
+                <span class="material-symbols-rounded text-white relative top-1 text-4xl rotate-90">double_arrow</span>            
+            </div>
+
+            <h3 class="my-4 text-xl">Treffen in <span class="font-bold">{{response}}</span></h3>
+
+            <div class="bg-[#4CF3F0] p-4 mb-8 rounded-md">
+               <span class="material-symbols-rounded text-white relative top-1 text-4xl -rotate-90">double_arrow</span>            
+            </div>
+            <div class="text-center">
+               <RouterLink to="/"><button class="mx-auto border-2 border-[#00A760] bg-[#A4FBD6] p-2 rounded-md font-semibold text-[#4a4a4a]">Neue Suche</button></RouterLink>
+            </div>
         </div>
         
   <footer class="absolute bottom-0 min-h-4 bg-[#A4FBD6] p-2 content-none w-full"></footer>
