@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PagesHeader from "../components/PagesHeader.vue";
 import DestinationInput from "@/components/DestinationInput.vue";
-import { onMounted, ref } from "vue";
+import {onMounted, ref} from "vue";
 import type Stop from "@/models/stop";
 
 var favorite = ref<Stop | undefined>();
@@ -37,8 +37,8 @@ function removeAllFavorites(){
   <div class="min-h-screen">
     <PagesHeader title="Favoriten" />
     <div class="mx-8 mt-8">
-      <DestinationInput placeholder="Station eingeben" :dark-mode="true"
-        @stopSelect="(stop: Stop | undefined) => favorite = stop"></DestinationInput>
+      <DestinationInput placeholder="Station eingeben" :dark-text="true"
+                        @stopSelect="(stop: Stop | undefined) => favorite = stop"></DestinationInput>
 
       <div v-if="favorite !== undefined" class="mt-10">
         <button @click="setLocalStorageFavorite"

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 
 import type Stop from '@/models/stop';
-import { getStops } from '@/models/utils';
-import { ref, toRefs, watch, type PropType, type Ref } from 'vue';
+import {getStops} from '@/models/utils';
+import {type PropType, ref, toRefs, watch} from 'vue';
 
 const stops = ref<Stop[]>([]);
 const suggestion = ref<Stop[]>([]);
@@ -12,9 +12,9 @@ let isFocus = ref(false);
 const emits = defineEmits(["stop-select"]);
 
 const props = defineProps({
-    darkMode: {default: false, type: Boolean},
-    placeholder: String,
-    cardValue: Object as PropType<Stop>
+  darkText: {default: false, type: Boolean},
+  placeholder: String,
+  cardValue: Object as PropType<Stop>
 });
 
 let props2 = toRefs(props);
@@ -48,7 +48,7 @@ function input() {
     if(stop.stop_name.toLowerCase() === userInput.value.toLowerCase()) {
       foundStop = stop;
     }
-  } 
+  }
   select(foundStop);
 }
 
@@ -68,23 +68,25 @@ function unfocus() {
 
 </script>
 <template>
-    <div @focusin="isFocus = true" @focusout="unfocus()" class="relative h-fit w-full" :class="{'dark': props.darkMode}">
-          <input @input="input()" v-model="userInput" type="text"
-            class="border-2 border-white bg-white/50 h-10 w-full rounded-md px-2 text-lg font-semibold text-[#4a4a4]"
-            :placeholder="props.placeholder" required>
-            <div v-if="userInput.length > 2 && isFocus" class="text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-96 bg-black/60 backdrop-blur  z-10 overflow-y-scroll">
-                <a class="cursor-pointer w-full" @click="select(stop)" v-for="stop in suggestion">{{stop.stop_name}}  <hr></a>
-            </div>
+  <div @focusin="isFocus = true" @focusout="unfocus()" class="relative h-fit w-full"
+       :class="{'darkText': props.darkText}">
+    <input @input="input()" v-model="userInput" type="text"
+           class="border-2 border-white bg-white/50 h-10 w-full rounded-md px-2 text-lg font-semibold text-[#4a4a4]"
+           :placeholder="props.placeholder" required>
+    <div v-if="userInput.length > 2 && isFocus"
+         class="text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-96 bg-black/60 backdrop-blur  z-10 overflow-y-scroll">
+      <a class="cursor-pointer w-full" @click="select(stop)" v-for="stop in suggestion">{{ stop.stop_name }}
+        <hr>
+      </a>
+    </div>
 
-        </div>
+  </div>
 </template>
 
 <style>
-
-    .dark {
-        border: none;
-        background-color: rgba(0, 0, 0, 0.214);
-        border-radius: 0.375rem;
-    }
-
+.darkText {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.214);
+  border-radius: 0.375rem;
+}
 </style>
