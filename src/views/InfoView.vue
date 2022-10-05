@@ -15,7 +15,7 @@ import PagesHeader from "../components/PagesHeader.vue";
             <p class="mb-4 text-sm">Die App basiert auf statischen soll-Daten (GTFS-Daten). Deshalb ist es zur Zeit leider nicht möglich eine Reiseauskunft mit ist-Daten zu geben.</p>
             <hr>
             <h2 class="text-2xl font-bold text-[#4a4a4a] mb-4">Speicherung von Daten</h2>
-            <p class="mb-4 text-sm">Die App speihert keine personengebundenen Daten, und ertellt auch keinen Suchverlauf der Nutzer:innen. Um jedoch die favorisierten Stationen
+            <p class="mb-4 text-sm">Die App speichert keine personengebundenen Daten, und ertellt auch keinen Suchverlauf der Nutzer:innen. Um jedoch die favorisierten Stationen
                 zu speichern, greift die App auf den local storage des Browsers zurück. Diese Daten können unter Favoriten "Alle löschen" entfernt werden. Achtung: Auch beim löschen von Browserdaten können diese Informationen verloren gehen.
             </p>
             <hr>
