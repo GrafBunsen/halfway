@@ -29,7 +29,7 @@ function setStation(station:Stop, a:boolean){
 </script>
 
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen -mb-6">
     <Header />
     <UserLocation></UserLocation>
     <div class="m-8">

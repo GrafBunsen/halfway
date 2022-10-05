@@ -2,7 +2,7 @@
 import PagesHeader from "../components/PagesHeader.vue";
 </script>
 <template>
-    <div class="min-h-screen">
+    <div class="min-h-screen -mb-6">
         <PagesHeader title="Einstellungen"/>
     
         

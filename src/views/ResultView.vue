@@ -22,7 +22,7 @@ fetch(`http://localhost:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop_id}
 
 </script>
 <template>
-    <div class="min-h-screen">
+    <div class="min-h-screen -mb-6">
         <Header />
         <div v-if="!result">
             <LoadingResult></LoadingResult>

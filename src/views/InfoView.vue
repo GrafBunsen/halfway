@@ -2,10 +2,10 @@
 import PagesHeader from "../components/PagesHeader.vue";
 </script>
 <template>
-    <div class="min-h-screen">
+    <div class="min-h-screen -mb-6">
         <PagesHeader title="Informationen"/>
     
-        <div class="text-center mx-16">
+        <div class="text-center mx-16 mb-8">
             <h2 class="text-2xl font-bold text-[#4a4a4a] mb-4">Version</h2>
             <p class="mb-4 font-bold">v. 1.0.0</p>
             <hr>

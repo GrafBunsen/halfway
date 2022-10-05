@@ -34,7 +34,7 @@ function removeAllFavorites(){
 
 </script>
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen -mb-6">
     <PagesHeader title="Favoriten" />
     <div class="mx-8 mt-8">
       <DestinationInput placeholder="Station eingeben" :dark-text="true"
