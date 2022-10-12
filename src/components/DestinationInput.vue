@@ -70,7 +70,7 @@ function unfocus() {
 <template>
   <div @focusin="isFocus = true" @focusout="unfocus()" class="relative h-fit w-full"
        :class="{'darkText': props.darkText}">
-    <input @input="input()" v-model="userInput" type="text"
+    <input @keyup="input()" :value="userInput" @input="e => userInput = (e?.target as any)?.value" type="text"
            class="border-2 border-white bg-white/50 h-10 w-full rounded-md px-2 text-lg font-semibold text-[#4a4a4]"
            :placeholder="props.placeholder" required>
     <div v-if="userInput.length > 2 && isFocus"
