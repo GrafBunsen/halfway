@@ -4,7 +4,10 @@ import PagesHeader from "../components/PagesHeader.vue";
 <template>
     <div class="min-h-screen -mb-6">
         <PagesHeader title="Einstellungen"/>
-    
+    <div class="mx-8">
+        <img src="src/assets/void.svg" class="w-40 mt-10 mx-auto" alt="voidImage">
+        <p class="mt-4 text-sm">Ganz schön leer... An den Einstellungen arbeiten wir noch</p>
+    </div>
         
 
     
