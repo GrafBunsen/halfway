@@ -13,6 +13,8 @@ import PagesHeader from "../components/PagesHeader.vue";
             <h2 class="text-2xl font-bold text-[#4a4a4a] mb-4">Über</h2>
             <p class="mb-4 text-sm">Finde die Mitte - Gib in die Eingabefelder die Startpunkte von zwei Personen ein, die App findet dann die passende Station, zu welcher beide etwa gleich lang brauchen, um diese zu erreichen.</p>
             <p class="mb-4 text-sm">Die App basiert auf statischen soll-Daten (GTFS-Daten). Deshalb ist es zur Zeit leider nicht möglich eine Reiseauskunft mit ist-Daten zu geben.</p>
+            <h4 class="text-lg font-bold text-[#4a4a4a]">Berliiiin!!</h4>
+            <p class="text-sm mb-4">Für alle die enttäuscht sind dass sie ihre Station nicht finden... Die App funktioniert <i>(zur Zeit)</i> nur mit Öffi-Stationen in und um Berlin.</p>
             <hr>
             <h2 class="text-2xl font-bold text-[#4a4a4a] mb-4">Speicherung von Daten</h2>
             <p class="mb-4 text-sm">Die App speichert keine personengebundenen Daten, und ertellt auch keinen Suchverlauf der Nutzer:innen. Um jedoch die favorisierten Stationen
