@@ -78,7 +78,7 @@ function setStation(station:Stop, a:boolean){
         
       <div class="relative flex gap-4 snap-x snap-mandatory overflow-x-auto pb-4">
         <div v-for="favorite in favoritesArr" class="snap-always snap-center shrink-0 first:pl-8 last:pr-8">
-          <FavoritesCards @button-select="(a: boolean) => setStation(favorite, a)" :stationName="favorite.stop_name"></FavoritesCards> <!--NUmber of Favorite Cards will be the number of Favorites-->
+          <FavoritesCards :station="favorite" @button-select="(a: boolean) => setStation(favorite, a)"></FavoritesCards> <!--NUmber of Favorite Cards will be the number of Favorites-->
         </div>
       </div> 
       <div v-if="favoritesArr.length == 0">
