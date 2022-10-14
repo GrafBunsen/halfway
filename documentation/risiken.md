@@ -1,0 +1,6 @@
+| Nr.   | Risikobeschreibung                                   | Eintrittswahrscheinlichkeit | Auswirkung                    | Risikoart     | Chance/Bedrohung | Behandlung  | Beschreibung der Behandlung              |
+| ----- | ---------------------------------------------------  | --------------------------- | ----------------------------- | ------------- | ---------------- | ----------- | ---------------------------------------- |
+| R1    | Krankheitsbedingter Ausfall von mehreren Entwicklern | mittel                      | groß                          | zeitlich      | Bedrohung        | Plan B      | Freelancer vorhalten                     |
+| R2    | Krankheitsbedingter Ausfall von einem Entwickler     | hoch                        | niedrig                       | zeitlich      | Bedrohung        | akzeptieren | Auswirkung ist händelbar                 |
+| R3    | Freie GTFS Daten werden nicht mehr bereitgestellt    | niedrig                     | groß                          | technologisch | Bedrohung        | akzeptieren | dann muss das Projekt reevaluiert werden |
+| R4    | VBB springt als Kunde ab                             | niedrirg                    | groß                          | finanziell    | Bedrohung        | Plan B      | versuchen selber weiter zu machen        |
