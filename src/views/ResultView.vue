@@ -11,14 +11,61 @@ const startOfB = store.startB;
 
 const response = ref();
 
+function findNextLink(searchString: any, result: any) {
+
+    for(let l of result.links) {
+        if(l.fromId === searchString) {
+            return {from: searchString, to: l.toId, name: l.data.name}
+        } else if(l.toId === searchString) {
+            return {from: searchString, to: l.fromId, name: l.data.name}
+        }
+    }
+    return { name: "TRANSFER" };
+}
 
 fetch(`http://localhost:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop_id}`).then(
-    async x => {
+    async fetchRes => {
         result.value = true;
-        response.value = (await x.json()).middleStop.data.label;
-        //console.log(response.value.middleStop.data.label)
+        var fetchResJson = await fetchRes.json();
+        response.value = fetchResJson.middleStop.data.label;
+        console.log(fetchResJson)
+
+        let stops = new Map();
+        let trips = new Map();
+        fetchResJson.path.forEach((stop: any) => (stops.set(stop.id, stop.data.label)));
+        let routeA = [];
+        for(let i = 0; i < fetchResJson.indexOfMiddleStop; i++) {
+            routeA.push(findNextLink(fetchResJson.path[i].id, fetchResJson));
+        }
+        let routeB: any = [];
+        for(let i = fetchResJson.path.length - 1; i >= fetchResJson.indexOfMiddleStop; i--) {
+            routeB.push(findNextLink(fetchResJson.path[i].id, fetchResJson));
+        }
+        console.log("routeA", routeA);
+        console.log("routeB", routeB);
+
+
+       /* fetchResJson.links.forEach((l: any) => {
+            if(l.data.name) {
+                var list;
+                if(trips.has(l.data.name)) {
+                    list = trips.get(l.data.name);
+                } else {
+                    list = [];
+                }
+                list.push({from: stops.get(l.fromId), to: stops.get(l.toId)});
+                trips.set(l.data.name, list)
+            } 
+        })*/
+        console.log(trips);
+
+        //split trips
+        
     }
 );
+
+
+
 
 </script>
 <template>
