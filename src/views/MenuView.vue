@@ -2,7 +2,7 @@
 import MenuHeader from "../components/MenuHeader.vue";
     </script>
 <template>
-
+<div>
 
     <div class="w-full shadow-2xl min-h-screen -mb-6">
         <MenuHeader />
@@ -17,5 +17,5 @@ import MenuHeader from "../components/MenuHeader.vue";
         </nav>
     </div>
     <footer class="relative bottom-0 h-4 bg-[#A4FBD6] mt-2 content-none w-full"></footer>
-
+</div>
 </template>

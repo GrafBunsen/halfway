@@ -69,6 +69,7 @@ fetch(`http://localhost:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop_id}
 
 </script>
 <template>
+    <div>
     <div class="min-h-screen -mb-6">
         <Header />
         <div v-if="!result">
@@ -90,4 +91,5 @@ fetch(`http://localhost:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop_id}
         </div>
     </div>
     <footer class="relative bottom-0 h-4 bg-[#A4FBD6] mt-2 content-none w-full"></footer>
+</div>
 </template>

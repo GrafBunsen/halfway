@@ -29,6 +29,7 @@ function setStation(station:Stop, a:boolean){
 </script>
 
 <template>
+<div>
   <div class="min-h-screen -mb-6">
     <Header />
     <UserLocation></UserLocation>
@@ -88,6 +89,7 @@ function setStation(station:Stop, a:boolean){
     </div>
   </div>
   <footer class="relative bottom-0 h-4 bg-[#A4FBD6] mt-2 content-none w-full"></footer>
+  </div>
 </template>
 
 <style>
