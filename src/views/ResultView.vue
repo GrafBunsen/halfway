@@ -88,8 +88,6 @@ fetch(`http://localhost:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop_id}
                <RouterLink to="/"><button class="mx-auto border-2 border-[#00A760] bg-[#A4FBD6] p-2 rounded-md font-semibold text-[#4a4a4a]">Neue Suche</button></RouterLink>
             </div>
         </div>
-        
-  <footer class="absolute bottom-0 min-h-4 bg-[#A4FBD6] p-2 content-none w-full"></footer>
-  
     </div>
+    <footer class="relative bottom-0 h-4 bg-[#A4FBD6] mt-2 content-none w-full"></footer>
 </template>
