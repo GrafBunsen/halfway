@@ -68,7 +68,7 @@ function setStation(station:Stop, a:boolean){
         </button>
       </div>
 
-      <div v-if="store.startA === store.startB && store.startA != undefined" class="mt-4 text-red-600 font-medium"><span class="material-symbols-rounded text-red-600 relative top-[6px]">warning</span> Deine beiden Stationen sind identisch</div>
+      <div v-if="store.startA === store.startB && store.startA != undefined" class="mt-4 text-red-600 font-medium text-center bg-red-100 rounded-md"><span class="material-symbols-rounded text-red-600 relative top-[6px]">warning</span><br> Deine beiden Stationen sind identisch</div>
   
       <div v-if="favorites" class="mt-20">
 
