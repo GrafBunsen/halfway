@@ -4,7 +4,7 @@ import MenuHeader from "../components/MenuHeader.vue";
 <template>
 
 
-    <div class="w-full shadow-2xl min-h-screen">
+    <div class="w-full shadow-2xl min-h-screen -mb-6">
         <MenuHeader />
         <nav class="mx-6">
             <RouterLink to="/"><h1 class="text-[#4a4a4a] font-bold text-2xl text-center my-8"><span class="material-symbols-rounded text-[#4a4a4a] relative top-1 text-3xl">home</span> Home</h1></RouterLink>
@@ -15,8 +15,7 @@ import MenuHeader from "../components/MenuHeader.vue";
             <hr>
             <RouterLink to="/info"><h1 class="text-[#4a4a4a] font-bold text-2xl text-center my-8"><span class="material-symbols-rounded text-[#4a4a4a] relative top-1 text-3xl">info</span> Informationen</h1></RouterLink>
         </nav>
-    
-        <footer class="absolute bottom-0 min-h-4 bg-[#A4FBD6] p-2 content-none w-full"></footer>
     </div>
+    <footer class="relative bottom-0 h-4 bg-[#A4FBD6] mt-2 content-none w-full"></footer>
 
 </template>
