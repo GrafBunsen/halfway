@@ -9,8 +9,8 @@ const result = ref(false)
 const startOfA = store.startA;
 const startOfB = store.startB;
 
-const routeOfB = ref();
-const routeOfA = ref();
+const relevantStopsA = ref();
+const relevantStopsB = ref();
 
 const response = ref();
 
@@ -35,22 +35,51 @@ fetch(`http://80.240.25.172:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop
 
         let stops = new Map();
         fetchResJson.path.forEach((stop: any) => (stops.set(stop.id, stop.data.label)));
-        let routeA = [];
-        for(let i = 0; i < fetchResJson.indexOfMiddleStop; i++) {
-            routeA.push(findNextLink(fetchResJson.path[i].id, fetchResJson.path[i+1].id, fetchResJson, stops));
-        }
         let routeB = [];
-        for(let i = fetchResJson.indexOfMiddleStop; i < fetchResJson.path.length - 1; i++) {
+        for(let i = 0; i < fetchResJson.indexOfMiddleStop; i++) {
             routeB.push(findNextLink(fetchResJson.path[i].id, fetchResJson.path[i+1].id, fetchResJson, stops));
         }
+        let routeA = [];
+        for(let i = fetchResJson.indexOfMiddleStop; i < fetchResJson.path.length - 1; i++) {
+            routeA.push(findNextLink(fetchResJson.path[i+1].id, fetchResJson.path[i].id, fetchResJson, stops));
+        }
 
-        routeOfB.value = routeB;
-        routeOfA.value = routeA;
+        relevantStopsA.value = getRelevantStops(routeA.reverse());
+        relevantStopsB.value = getRelevantStops(routeB.reverse());
+
         console.log("routeA", routeA);
-        console.log("routeB", routeB);
+        console.log("routeB", routeB);       
     }
 );
 
+function getRelevantStops(route:any): any[]{
+    let name = route[0].name;
+    let length = route.length;
+    let relevantArr = [];
+    relevantArr.push({from: route[0].from, to: route[0].to, name: name})
+    for(let i = 0; i < length; i++){
+        if(route[i].name !== name && route[i].name !== 'transfer' || i == length-1){
+            name = route[i].name;
+
+            if(route[i].name == 'TRANSFER' && i == length-1){
+                name = route[i-1].name;
+                relevantArr.push({from: route[i-1].from, to: route[i-1].to, name: route[i-1].name});
+
+            } else if(route[i].name == 'TRANSFER' && i == 0){
+
+                name = route[i+1].name;
+                relevantArr.push({from: route[i+1].from, to: route[i+1].to, name: route[i+1].name});
+
+            } else{
+
+                relevantArr.push({from: route[i].from, to: route[i].to, name: route[i].name});
+            }
+        }
+
+    }
+    console.log(relevantArr);
+    return relevantArr
+}
 
 
 
@@ -62,15 +91,18 @@ fetch(`http://80.240.25.172:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop
         <div v-if="!result">
             <LoadingResult></LoadingResult>
         </div>
-        <div v-else class="mx-8">
+        <div v-else class="m-8">
             <div class="bg-[#A4FBD6] p-4 mt-8 rounded-md">
-                <div class="flex">
+                <div class="flex justify-between">
                     <h1 class="text-7xl font-bold text-white text-left italic -ml-4 -mt-7">A</h1>
-                    <span class="material-symbols-rounded text-white relative top-1 text-4xl rotate-90">double_arrow</span>            
+                    <span class="material-symbols-rounded text-right text-white relative top-1 text-4xl rotate-90">double_arrow</span>            
                 </div>
-                <div class="ml-14">
-                    {{routeOfA[0].from}} 
-                    <div v-for="stop in routeOfA">{{stop.to}}</div>
+                <div class="ml-6">
+                    <div class="text-[#3B5263] mb-4" v-for="(stop, index) in relevantStopsA">
+                        <div v-if="index == 0" class="font-bold text-lg"><span class="text-white font-bold text-xl -ml-4 mr-4">O</span> {{stop.from}}</div>
+                        <div v-else class="text-md font-semibold" :class="{'font-bold text-lg': index == relevantStopsB.length-1}"><span class="text-white font-bold text-xl -ml-4 mr-4">O</span>{{stop.to}}</div>
+                        <div v-if="index != relevantStopsB.length-1" class="ml-8 italic mt-2">{{stop.name}}</div>
+                    </div>
                 </div>
             </div>
 
@@ -81,9 +113,12 @@ fetch(`http://80.240.25.172:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop
                     <span class="material-symbols-rounded text-white relative top-1 text-4xl -rotate-90">double_arrow</span>
                     <h1 class="text-7xl font-bold text-white text-right italic -mt-7 -mr-5">B</h1>     
                 </div> 
-                <div class="ml-4">
-                    {{routeOfB[0].from}} 
-                    <div v-for="stop in routeOfB">{{stop.to}}</div>
+                <div class="ml-6"> 
+                    <div class="text-[#3B5263] mb-4" v-for="(stop, index) in relevantStopsB">
+                        <div v-if="index == relevantStopsB.length-1" class="font-bold text-lg"><span class="text-white font-bold text-xl -ml-4 mr-4">O</span>{{stop.from}}</div>
+                        <div v-else class="text-md font-semibold" :class="{'font-bold text-lg': index == 0}"><span class="text-white font-bold text-xl -ml-4 mr-4">O</span>{{stop.to}}</div>
+                        <div v-if="index != relevantStopsB.length-1" class="ml-8 italic mt-2">{{stop.name}}</div>
+                    </div>
                 </div>    
             </div>
             <div class="text-center">

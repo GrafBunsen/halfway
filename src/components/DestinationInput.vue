@@ -62,7 +62,7 @@ function select(stop: Stop | undefined) {
 }
 
 function unfocus() {
-    setTimeout(() => isFocus.value = false, 1);
+    setTimeout(() => isFocus.value = false, 3);
 }
 
 
@@ -75,7 +75,7 @@ function unfocus() {
            :placeholder="props.placeholder" required>
     <div v-if="userInput.length > 2 && isFocus"
          class="text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-96 bg-black/60 backdrop-blur  z-10 overflow-y-scroll">
-      <a class="cursor-pointer w-full" @click="select(stop)" v-for="stop in suggestion">{{ stop.stop_name }}
+          <a class="cursor-pointer w-full" @click="select(stop)" v-for="stop in suggestion">{{ stop.stop_name }}
         <hr>
       </a>
     </div>
