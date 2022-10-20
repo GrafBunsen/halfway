@@ -100,7 +100,7 @@ function getRelevantStops(route:any): any[]{
                 <div class="ml-6">
                     <div class="text-[#3B5263] mb-4" v-for="(stop, index) in relevantStopsA">
                         <div v-if="index == 0" class="font-bold text-lg"><span class="text-white font-bold text-xl -ml-4 mr-4">O</span> {{stop.from}}</div>
-                        <div v-else class="text-md font-semibold" :class="{'font-bold text-lg': index == relevantStopsB.length-1}"><span class="text-white font-bold text-xl -ml-4 mr-4">O</span>{{stop.to}}</div>
+                        <div v-else class="text-md font-semibold" :class="{'font-bold text-lg': index == relevantStopsA.length-1}"><span class="text-white font-bold text-xl -ml-4 mr-4">O</span>{{stop.to}}</div>
                         <div v-if="index != relevantStopsB.length-1" class="ml-8 italic mt-2">{{stop.name}}</div>
                     </div>
                 </div>
