@@ -58,22 +58,15 @@ function getRelevantStops(route:any): any[]{
     let relevantArr = [];
     relevantArr.push({from: route[0].from, to: route[0].to, name: name})
     for(let i = 0; i < length; i++){
-        if(route[i].name !== name && route[i].name !== 'transfer' || i == length-1){
-            name = route[i].name;
-
-            if(route[i].name == 'TRANSFER' && i == length-1){
-                name = route[i-1].name;
-                relevantArr.push({from: route[i-1].from, to: route[i-1].to, name: route[i-1].name});
-
-            } else if(route[i].name == 'TRANSFER' && i == 0){
-
-                name = route[i+1].name;
-                relevantArr.push({from: route[i+1].from, to: route[i+1].to, name: route[i+1].name});
-
-            } else{
-
-                relevantArr.push({from: route[i].from, to: route[i].to, name: route[i].name});
-            }
+        if(route[i].name == "transfer" || i == length-1){
+         
+         if(route[i].name == "TRANSFER" && i == 0){
+            relevantArr.push({from: route[i+1].from, to: route[i+1].to, name: route[i+1].name});
+         }else if(route[i].name == "TRANSFER" && i == length-1){
+            relevantArr.push({from: route[i-1].from, to: route[i-1].to, name: route[i-1].name});
+         }else{
+            relevantArr.push({from: route[i].from, to: route[i].to, name: route[i-1].name});
+         }
         }
 
     }
