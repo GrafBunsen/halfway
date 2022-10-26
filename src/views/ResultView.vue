@@ -45,10 +45,11 @@ fetch(`http://80.240.25.172:3001/calculate/${startOfA?.stop_id}/${startOfB?.stop
         }
 
         relevantStopsA.value = getRelevantStops(routeA.reverse());
-        relevantStopsB.value = getRelevantStops(routeB.reverse());
+        relevantStopsB.value = getRelevantStops(routeB.reverse());     
 
         console.log("routeA", routeA);
-        console.log("routeB", routeB);       
+        
+        console.log("routeB", routeB);
     }
 );
 
@@ -71,7 +72,7 @@ function getRelevantStops(route:any): any[]{
         }
         if(i == length-1){
             if(route[i].name == "TRANSFER"){
-                relevantArr.push({from: route[i-1].from, to: route[i-1].to});
+                relevantArr.push({from: route[i].from, to: route[i].to});
             }else{
             relevantArr.push({from: route[i].from, to: route[i].to});
         }
@@ -92,40 +93,40 @@ function getRelevantStops(route:any): any[]{
             <LoadingResult></LoadingResult>
         </div>
         <div v-else class="m-8">
-            <div class="bg-[#A4FBD6] p-4 mt-8 rounded-md">
+            <div class="bg-primary-green p-4 mt-8 rounded-md">
                 <div class="flex justify-between">
                     <h1 class="text-7xl font-bold text-white text-left italic -ml-4 -mt-7">A</h1>
                     <span class="material-symbols-rounded text-right text-white relative top-1 text-4xl rotate-90">double_arrow</span>            
                 </div>
                 <div class="ml-6">
-                    <div class="text-[#3B5263] mb-4" v-for="(stop, index) in relevantStopsA">
-                        <div v-if="index == 0" class="font-bold text-lg"><span class="text-white font-bold text-xl -ml-4 mr-4">&#x25EF</span> {{stop.from}}</div>
-                        <div v-else class="text-md font-semibold" :class="{'font-bold text-lg': index == relevantStopsA.length-1}"><span class="text-white font-bold text-xl -ml-4 mr-4">&#x25EF</span>{{stop.to}}</div>
+                    <div class="text-primary-text mb-4" v-for="(stop, index) in relevantStopsA">
+                        <div v-if="index == 0" class="font-bold text-lg"><span class="text-white font-bold text-lg -ml-4 mr-4">&#x25EF</span> {{stop.from}}</div>
+                        <div v-else class="text-md font-semibold" :class="{'font-bold text-lg': index == relevantStopsA.length-1}"><span class="text-white font-bold text-lg -ml-4 mr-4">&#x25EF</span>{{stop.to}}</div>
                         <div v-if="index != relevantStopsB.length" class="ml-8 italic mt-2">{{stop.name}}</div>
                     </div>
                 </div>
             </div>
 
-            <h3 class="my-4 text-xl text-center">Treffen in <span class="font-bold">{{response}}</span></h3>
+            <h3 class="my-4 text-xl text-center text-primary-text">Treffen in <span class="font-bold">{{response}}</span></h3>
 
-            <div class="bg-[#4CF3F0] p-4 mb-8 rounded-md"> 
+            <div class="bg-primary-blue p-4 mb-8 rounded-md"> 
                 <div class="flex justify-between">
                     <span class="material-symbols-rounded text-white relative top-1 text-4xl -rotate-90">double_arrow</span>
                     <h1 class="text-7xl font-bold text-white text-right italic -mt-7 -mr-5">B</h1>     
                 </div> 
                 <div class="ml-6"> 
-                    <div class="text-[#3B5263] mb-4" v-for="(stop, index) in relevantStopsB">
-                        <div v-if="index == relevantStopsB.length-1" class="font-bold text-lg"><span class="text-white font-bold text-xl -ml-4 mr-4">&#x25EF</span>{{stop.from}}</div>
-                        <div v-else class="text-md font-semibold" :class="{'font-bold text-lg': index == 0}"><span class="text-white font-bold text-xl -ml-4 mr-4">&#x25EF</span>{{stop.to}}</div>
+                    <div class="text-primary-text mb-4" v-for="(stop, index) in relevantStopsB">
+                        <div v-if="index == relevantStopsB.length-1" class="font-bold text-lg"><span class="text-white font-bold text-lg -ml-4 mr-4">&#x25EF</span>{{stop.from}}</div>
+                        <div v-else class="text-md font-semibold" :class="{'font-bold text-lg': index == 0}"><span class="text-white font-bold text-lg -ml-4 mr-4">&#x25EF</span>{{stop.to}}</div>
                         <div v-if="index != relevantStopsB.length-1" class="ml-8 italic mt-2">{{stop.name}}</div>
                     </div>
                 </div>    
             </div>
             <div class="text-center">
-               <RouterLink to="/"><button class="mx-auto border-2 border-[#00A760] bg-[#A4FBD6] p-2 rounded-md font-semibold text-[#4a4a4a]">Neue Suche</button></RouterLink>
+               <RouterLink to="/"><button class="mx-auto border-2 border-[#00A760] bg-primary-green p-2 rounded-md font-semibold text-primary-text">Neue Suche</button></RouterLink>
             </div>
         </div>
     </div>
-    <footer class="relative bottom-0 h-4 bg-[#A4FBD6] mt-2 content-none w-full"></footer>
+    <footer class="relative bottom-0 h-4 bg-primary-green mt-2 content-none w-full"></footer>
 </div>
 </template>

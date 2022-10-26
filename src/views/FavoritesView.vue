@@ -73,6 +73,6 @@ function removeAllFavorites(){
     </div>
 
   </div>
-  <footer class="relative bottom-0 h-4 bg-[#A4FBD6] p-2 mt-2 content-none w-full"></footer>
+  <footer class="relative bottom-0 h-4 bg-primary-green p-2 mt-2 content-none w-full"></footer>
 
 </template>
