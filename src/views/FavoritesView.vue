@@ -15,11 +15,24 @@ onMounted(() => {
 function setLocalStorageFavorite() {
   if (favorite.value !== undefined) {
     let storedFavorites = localStorage.getItem("favorites");
-    favoritesArr.value = storedFavorites ? JSON.parse(storedFavorites) : [];
-    favoritesArr.value.push(favorite.value);
-    localStorage.setItem('favorites', JSON.stringify(favoritesArr.value));
+    if(checkIfLegal(favorite.value)){
+      favoritesArr.value = storedFavorites ? JSON.parse(storedFavorites) : [];
+      favoritesArr.value.push(favorite.value);
+      localStorage.setItem('favorites', JSON.stringify(favoritesArr.value));
+    }
   }
 
+}
+
+function checkIfLegal(fav:any): boolean{
+  for(let i=0; i<favoritesArr.value.length; i++){
+      if(fav === favoritesArr.value[i]){
+        return false;
+      }else{
+        continue;
+      }
+    }
+    return true;
 }
 
 function removeFavorite(index:number){

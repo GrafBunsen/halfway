@@ -1,8 +1,10 @@
 <script setup lang="ts"></script>
 <template>
-<Transition name="slide-fade">
-    <router-view />
-</Transition>
+  <div :class="{'dark':true}">
+    <Transition name="slide-fade">
+        <router-view />
+    </Transition>
+  </div>
 </template>
 <style>
 .slide-fade-enter-active {
