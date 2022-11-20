@@ -88,16 +88,16 @@ function getRelevantStops(route: any): any[] {
 
 </script>
 <template>
-    <div>
+    <div class="dark: bg-bg-dark">
         <div class="min-h-screen -mb-6">
             <Header />
             <div v-if="!result">
                 <LoadingResult></LoadingResult>
             </div>
             <div v-else class="m-8">
-                <div class="bg-primary-green p-4 mt-8 rounded-md">
+                <div class="bg-primary-green p-4 mt-8 rounded-md dark:drop-shadow-md">
                     <div class="flex justify-between">
-                        <h1 class="text-7xl font-bold text-white text-left italic -ml-4 -mt-7">A</h1>
+                        <h1 class="text-7xl font-bold dark:text-bg-dark text-white text-left italic -ml-4 -mt-7">A</h1>
                         <span
                             class="material-symbols-rounded text-right text-white relative top-1 text-4xl rotate-90">double_arrow</span>
                     </div>
@@ -113,14 +113,14 @@ function getRelevantStops(route: any): any[] {
                     </div>
                 </div>
 
-                <h3 class="my-4 text-xl text-center text-primary-text">Treffen in <span
+                <h3 class="my-4 text-xl text-center dark:text-white text-primary-text">Treffen in <span
                         class="font-bold">{{ response }}</span></h3>
 
-                <div class="bg-primary-blue p-4 mb-8 rounded-md">
+                <div class="bg-primary-blue p-4 mb-8 rounded-md dark:drop-shadow-md">
                     <div class="flex justify-between">
                         <span
                             class="material-symbols-rounded text-white relative top-1 text-4xl -rotate-90">double_arrow</span>
-                        <h1 class="text-7xl font-bold text-white text-right italic -mt-7 -mr-5">B</h1>
+                        <h1 class="text-7xl font-bold dark:text-bg-dark text-white text-right italic -mt-7 -mr-5">B</h1>
                     </div>
                     <div class="ml-6">
                         <div class="text-primary-text mb-4" v-for="(stop, index) in relevantStopsB">

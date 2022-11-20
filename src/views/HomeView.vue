@@ -29,27 +29,30 @@ function setStation(station:Stop, a:boolean){
 </script>
 
 <template>
-<div>
+<div class="dark:bg-bg-dark">
   <div class="min-h-screen -mb-6">
     <Header />
     <UserLocation></UserLocation>
     <div class="m-8">
-      <div class="bg-primary-green rounded-t-md pt-4 flex items-center">
+      <div class="dark: drop-shadow-md">
+                  <div class="bg-primary-green rounded-t-md pt-4 flex items-center">
 
-        <DestinationInput placeholder="Start A" :cardValue="store.startA" class="mx-2" @stopSelect="(stop: Stop | undefined) => select(stop, 'startA')"></DestinationInput>
-        
-        <h1 class="text-7xl font-bold text-white text-right italic -mb-[6px]">A</h1>
-      </div>
+          <DestinationInput placeholder="Start A" :cardValue="store.startA" class="mx-2" @stopSelect="(stop: Stop | undefined) => select(stop, 'startA')"></DestinationInput>
 
-      <div class="bg-primary-blue rounded-b-md pt-4 flex items-center">
-        <h1 class="text-7xl font-bold text-white text-right italic -mb-[6px]">B</h1>
-        <DestinationInput placeholder="Start B" :cardValue="store.startB" class="mx-2" @stopSelect="(stop: Stop | undefined) => select(stop, 'startB')"></DestinationInput>
-        
+          <h1 class="text-7xl font-bold text-white text-right italic -mb-[6px]">A</h1>
+          </div>
+
+          <div class="bg-primary-blue rounded-b-md pt-4 flex items-center">
+          <h1 class="text-7xl font-bold text-white text-right italic -mb-[6px] ml-[3px]">B</h1>
+          <DestinationInput placeholder="Start B" :cardValue="store.startB" class="mx-2" @stopSelect="(stop: Stop | undefined) => select(stop, 'startB')"></DestinationInput>
+
+          </div>
       </div>
+      
 
       <div class="mt-8" v-if="store.startA != undefined && store.startB != undefined && store.startA != store.startB">
         <router-link to="/result">
-          <button class="bg-button-active rounded-md h-12 text-white w-full font-bold italic text-2xl">Finden
+          <button class="dark:border-2 dark:broder-white dark:drop-shadow-md bg-button-active rounded-md h-12 text-white w-full font-bold italic text-2xl">Finden
             <span>
               <span
                 class="material-symbols-rounded text-white relative top-1 left-4 text-right">arrow_forward_ios</span>
@@ -73,8 +76,8 @@ function setStation(station:Stop, a:boolean){
       <div v-if="favorites" class="mt-20">
 
         <div class="flex justify-center">
-          <h3 class="mb-4 font-semibold text-xl text-center text-primary-text"><span class="material-symbols-rounded relative top-[6px] text-3xl">star</span> Favoriten </h3>  
-         <RouterLink to="/favorites"><button class="relative top-2 ml-8 border-2 border-button-active h-10 px-1 rounded-md"><span class="material-symbols-rounded text-[#3B5263] relative text-3xl">add</span></button></RouterLink>
+          <h3 class="mb-4 font-semibold text-xl text-center text-primary-text dark:text-white"><span class="material-symbols-rounded relative top-[6px] text-3xl">star</span> Favoriten </h3>  
+         <RouterLink to="/favorites"><button class="relative top-2 ml-8 border-2 border-button-active dark:border-white h-10 px-1 rounded-md"><span class="material-symbols-rounded text-[#3B5263] dark:text-white relative text-3xl">add</span></button></RouterLink>
         </div>        
         
       <div class="relative flex gap-4 snap-x snap-mandatory overflow-x-auto pb-4">

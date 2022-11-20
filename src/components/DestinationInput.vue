@@ -89,4 +89,11 @@ function unfocus() {
   background-color: rgba(0, 0, 0, 0.214);
   border-radius: 0.375rem;
 }
+@media (prefers-color-scheme: dark) {
+  .darkText{
+    border: none;
+    background-color: rgba(255, 255, 255, 0.314);
+    border-radius: 0.375rem;
+  }
+}
 </style>
