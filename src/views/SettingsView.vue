@@ -9,5 +9,5 @@ import PagesHeader from "../components/PagesHeader.vue";
         <p class="mt-4 text-sm">Ganz schön leer... An den Einstellungen arbeiten wir noch</p>
     </div>
 </div>
-<footer class="relative bottom-0 h-4 bg-[#A4FBD6] mt-2 content-none w-full"></footer>
+<footer class="relative bottom-0 h-4 bg-primary-green mt-2 content-none w-full"></footer>
 </template>

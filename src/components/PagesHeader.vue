@@ -5,11 +5,11 @@ defineProps<{
 </script>
 <template>
     <div class="relative drop-shadow-md">
-      <div class="bg-[#4CF3F0] z-10 h-[7.25rem] w-5/12 absolute edgecut-high">
+      <div class="bg-primary-blue z-10 h-[7.25rem] w-5/12 absolute edgecut-high">
         <span @click="$router.back()" class="material-symbols-rounded text-white text-4xl relative top-10 left-4">arrow_back</span>
       </div>
-      <div class="bg-[#A4FBD6] py-10">
-        <h1 class="text-3xl text-[#4a4a4a] text-right pr-4"><span class="font-bold">{{title}}</span></h1>
+      <div class="bg-primary-green py-10">
+        <h1 class="text-3xl text-primary-text text-right pr-4"><span class="font-bold">{{title}}</span></h1>
       </div>
     </div>
     <br>
