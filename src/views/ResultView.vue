@@ -46,7 +46,7 @@ fetch(`${API_URL}/calculate/${startOfA?.stop_id}/${startOfB?.stop_id}`).then(
         }
 
         relevantStopsA.value = getRelevantStops(routeA.reverse());
-        relevantStopsB.value = getRelevantStops(routeB.reverse());
+        relevantStopsB.value = getRelevantStops(routeB).reverse();
 
         console.log("routeA", routeA);
 
@@ -80,8 +80,13 @@ function getRelevantStops(route: any): any[] {
             }
         }
     }
-    console.log(relevantArr);
+    console.log("RELEVANT: ",relevantArr);
     return relevantArr
+}
+
+function clearInput(){
+    store.startA = undefined;
+    store.startB = undefined;
 }
 
 
@@ -91,11 +96,11 @@ function getRelevantStops(route: any): any[] {
     <div class="dark: bg-bg-dark">
         <div class="min-h-screen -mb-6">
             <Header />
-            <div v-if="!result">
+            <div v-if="!result || store.startA == undefined || store.startB == undefined">
                 <LoadingResult></LoadingResult>
             </div>
             <div v-else class="m-8">
-                <div class="bg-primary-green p-4 mt-8 rounded-md dark:drop-shadow-md">
+                <div class="bg-primary-green p-4 mt-8 rounded-md">
                     <div class="flex justify-between">
                         <h1 class="text-7xl font-bold dark:text-bg-dark text-white text-left italic -ml-4 -mt-7">A</h1>
                         <span
@@ -116,7 +121,7 @@ function getRelevantStops(route: any): any[] {
                 <h3 class="my-4 text-xl text-center dark:text-white text-primary-text">Treffen in <span
                         class="font-bold">{{ response }}</span></h3>
 
-                <div class="bg-primary-blue p-4 mb-8 rounded-md dark:drop-shadow-md">
+                <div class="bg-primary-blue p-4 mb-8 rounded-md">
                     <div class="flex justify-between">
                         <span
                             class="material-symbols-rounded text-white relative top-1 text-4xl -rotate-90">double_arrow</span>
@@ -133,7 +138,7 @@ function getRelevantStops(route: any): any[] {
                     </div>
                 </div>
                 <div class="text-center">
-                    <RouterLink to="/"><button
+                    <RouterLink to="/"><button v-on:click="clearInput"
                             class="mx-auto border-2 border-[#00A760] bg-primary-green p-2 rounded-md font-semibold text-primary-text">Neue
                             Suche</button></RouterLink>
                 </div>
