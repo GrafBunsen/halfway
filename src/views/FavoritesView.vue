@@ -5,17 +5,17 @@ import {onMounted, ref} from "vue";
 import type Stop from "@/models/stop";
 
 var favorite = ref<Stop | undefined>();
-var favoritesArr = ref<Stop[]>([])
+var favoritesArr = ref<Stop[]>([]);
 
 onMounted(() => {
     let storedFavorites = localStorage.getItem("favorites");
     favoritesArr.value = storedFavorites ? JSON.parse(storedFavorites) : [];
-});
+  });
 
 function setLocalStorageFavorite() {
   if (favorite.value !== undefined) {
     let storedFavorites = localStorage.getItem("favorites");
-    if(checkIfLegal(favorite.value)){
+    if(checkIfLegal(favorite.value.stop_name)){
       favoritesArr.value = storedFavorites ? JSON.parse(storedFavorites) : [];
       favoritesArr.value.push(favorite.value);
       localStorage.setItem('favorites', JSON.stringify(favoritesArr.value));
@@ -26,7 +26,7 @@ function setLocalStorageFavorite() {
 
 function checkIfLegal(fav:any): boolean{
   for(let i=0; i<favoritesArr.value.length; i++){
-      if(fav === favoritesArr.value[i]){
+      if(fav === favoritesArr.value[i].stop_name){
         return false;
       }else{
         continue;

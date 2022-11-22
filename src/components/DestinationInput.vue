@@ -74,7 +74,7 @@ function unfocus() {
            class="border-2 border-white bg-white/50 h-10 w-full rounded-md px-2 text-lg font-semibold text-[#4a4a4]"
            :placeholder="props.placeholder" required>
     <div v-if="userInput.length > 2 && isFocus"
-         class="text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-96 bg-black/60 backdrop-blur  z-10 overflow-y-scroll">
+         class="text-lg absolute mt-2 rounded p-4 min-w-full w-20 min-h-20 max-h-96 bg-black/60 backdrop-blur z-10 overflow-y-scroll">
           <a class="cursor-pointer w-full" @click="select(stop)" v-for="stop in suggestion">{{ stop.stop_name }}
         <hr>
       </a>
