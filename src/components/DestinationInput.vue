@@ -68,7 +68,7 @@ function unfocus() {
 
 </script>
 <template>
-  <div @focusin="isFocus = true" @focusout="unfocus()" class="relative h-fit w-full"
+  <div @focusin="isFocus = true" @focusout="unfocus()" class="dark:darker relative h-fit w-full"
        :class="{'darkText': props.darkText}">
     <input @keyup="input()" :value="userInput" @input="e => userInput = (e?.target as any)?.value" type="text"
            class="border-2 border-white bg-white/50 h-10 w-full rounded-md px-2 text-lg font-semibold text-[#4a4a4]"
@@ -89,11 +89,10 @@ function unfocus() {
   background-color: rgba(0, 0, 0, 0.214);
   border-radius: 0.375rem;
 }
-@media (prefers-color-scheme: dark) {
-  .darkText{
+
+  .darker{
     border: none;
     background-color: rgba(255, 255, 255, 0.314);
     border-radius: 0.375rem;
   }
-}
 </style>

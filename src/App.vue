@@ -17,7 +17,7 @@
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  transform: translateX(-500px);
-  opacity: 0;
+  transform: translateX(-400px);
+  opacity: 1;
 }
 </style>

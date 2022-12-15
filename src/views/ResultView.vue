@@ -93,7 +93,7 @@ function clearInput(){
 
 </script>
 <template>
-    <div class="dark: bg-bg-dark">
+    <div class="dark:bg-bg-dark">
         <div class="min-h-screen -mb-6">
             <Header />
             <div v-if="!result || store.startA == undefined || store.startB == undefined">
