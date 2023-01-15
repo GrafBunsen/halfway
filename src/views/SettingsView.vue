@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import PagesHeader from "../components/PagesHeader.vue";
 import { ref, type Ref } from "vue";
+import { theme } from "@/models/theme";
 
 
-var toggled = ref(true);
+var toggled = ref(theme.dark);
 const emits = defineEmits(["themeValue"]);
 
 function themeValue(){
-    emits('themeValue', toggled);
+    theme.dark = toggled.value
 }
 
 </script>

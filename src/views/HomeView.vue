@@ -54,9 +54,7 @@ function setStation(station:Stop, a:boolean){
         <router-link to="/result">
           <button class="dark:border-2 dark:broder-white dark:drop-shadow-md bg-button-active rounded-md h-12 text-white w-full font-bold italic text-2xl">Finden
             <span>
-              <span
-                class="material-symbols-rounded text-white relative top-1 left-4 text-right">arrow_forward_ios</span>
-              <span class="material-symbols-rounded text-white relative top-1 text-right">arrow_forward_ios</span>
+              <i class="material-symbols-rounded text-white text-right">keyboard_double_arrow_right</i>
             </span>
           </button>
         </router-link>
@@ -65,8 +63,7 @@ function setStation(station:Stop, a:boolean){
       <div class="mt-8" v-else>
         <button class="bg-button-disabled rounded-md h-12 text-white w-full font-bold italic text-2xl">Finden
           <span>
-            <span class="material-symbols-rounded text-white relative top-1 left-4 text-right">arrow_forward_ios</span>
-            <span class="material-symbols-rounded text-white relative top-1 text-right">arrow_forward_ios</span>
+            <i class="material-symbols-rounded text-white text-right">keyboard_double_arrow_right</i>
           </span>
         </button>
       </div>

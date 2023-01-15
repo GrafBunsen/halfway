@@ -1,6 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {theme} from "@/models/theme";
+</script>
 <template>
-  <div :class="{'dark':true}">
+    <div :class="{'dark':theme.dark}">
     <Transition name="slide-fade">
         <router-view />
     </Transition>
